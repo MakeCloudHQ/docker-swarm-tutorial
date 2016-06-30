@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: yes
+
+  vars:
+    apt_repository: deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} testing
+
+  roles:
+    - docker-engine

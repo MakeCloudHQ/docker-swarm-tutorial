@@ -1,0 +1,17 @@
+---
+# tasks file for ansible-docker-engine-role
+
+- name: Install the linux_kernel_extra package
+  include: linux_kernel_extra.yml
+
+- name: Add Docker APT repository 
+  include: docker_apt_repo.yml
+
+- name: Install Docker Enginer
+  include: docker_engine.yml
+
+- name: Add docker user
+  user: name=docker group=docker
+
+- name: Install docker-compose
+  include: install_compose.yml

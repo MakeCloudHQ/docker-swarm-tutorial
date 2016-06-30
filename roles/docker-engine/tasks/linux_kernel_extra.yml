@@ -1,0 +1,9 @@
+- name: Install linux-image-extra package
+  apt:
+    pkg: "{{ item }}"
+    state: "{{ kernel_pkg_state }}"
+    update_cache: yes
+    cache_valid_time: 600
+  with_items:
+    - "linux-image-extra-{{ ansible_kernel }}"
+    - linux-image-extra-virtual
